@@ -12,8 +12,7 @@ public class PasswordGame {
     }
 
     private static int randomNumber () {
-        int random = (int) (Math.random() * 100 + 1);
-        return random;
+        return (int) (Math.random() * 100 + 1);
     }
 
     private static void game (int theNumber) {
@@ -27,7 +26,7 @@ public class PasswordGame {
                 break;
             } else if (theNumber > guess) {
                 min = guess;
-            } else if (theNumber < guess) {
+            } else {
                 max = guess;
             }
         }
