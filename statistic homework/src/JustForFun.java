@@ -1,12 +1,13 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 
 public class JustForFun {
     public static void main(String[] args) {
         int[] arr = {13, 9, 11, 4, 22, 27, 17, 16, 15, 14, 10, 6, 18, 14, 8, 6};
-        // System.out.println(mean(arr)); // Calculate the mean of arr.
-        // System.out.println(median(bSorting(arr))); // Calculate the median of arr.
-        mode(bSorting(arr));
+        HashMap<Integer,Integer> map = new HashMap<>();
+        createKeys(map, arr);
     }
 
     private static int[] bSorting (int[] arr) {
@@ -42,6 +43,44 @@ public class JustForFun {
     }
 
     private static void mode (int[] arr) {
-       ; // I need to understand HashMap.
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i : arr) {
+            if (!map.containsKey(i)) {
+                map.put(i, 0);
+            }
+        }
+        // Count how many duplicate values there are.
+        for (int i : map.keySet()) {
+            for (int j : arr) {
+                if (i == j) {
+                    int value = map.get(i);
+                    value += 1;
+                    map.put(i, value);
+                }
+            }
+        }
+        // Find the maximum value.
+        for (int i : map.values()) {
+            int temp = 0;
+            if (i > temp) {
+                temp = i;
+            }
+        }
+
+//        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+//            int key = entry.getKey();
+//            int value = entry.getValue();
+//            System.out.println("Key: " + key + ", Value: " + value);
+//        }
+    }
+
+    private static void createKeys(HashMap<Integer, Integer> map, int[] arr ) {
+        // Build non-repeating keys.
+        for (int i : arr) {
+            if (!map.containsKey(i)) {
+                map.put(i, 0);
+            }
+        }
     }
 }
