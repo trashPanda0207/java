@@ -148,7 +148,24 @@ public class PrintEvery3 {
         }
         return str.equals(reverse);
     }
-    public static void main(String[] args) {
 
+    private static void narcissisticNumber() {
+
+        for (int i = 100; i < 1000; i++) {
+            int units = i % 10;
+            int tens = ((i % 100) - units) / 10;
+            int hundreds = ((i % 1000) - (units + tens)) / 100;
+            int association = pow3(hundreds) + pow3(tens) + pow3(units);
+            if (i == association) {
+                System.out.println(i);
+            }
+        }
+    }
+
+    private static int pow3(int n) {
+        return (int) Math.pow(n, 3);
+    }
+    public static void main(String[] args) {
+        narcissisticNumber();
     }
 }
