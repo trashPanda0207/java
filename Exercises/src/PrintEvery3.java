@@ -165,6 +165,10 @@ public class PrintEvery3 {
     private static int pow3(int n) {
         return (int) Math.pow(n, 3);
     }
+
+    private static void addSome() {
+        ;
+    }
     public static void main(String[] args) {
         narcissisticNumber();
     }
