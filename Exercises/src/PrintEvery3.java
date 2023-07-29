@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class PrintEvery3 {
     private static void printEvery3() {
-        for (int i = 1; i <= 88; i+=3) {
+        for (int i = 1; i <= 88; i += 3) {
             System.out.println(i);
         }
     }
@@ -10,7 +12,7 @@ public class PrintEvery3 {
     private static void nineTable() {
         for (int i = 1; i <= 9; i++) {
             for (int j = 1; j <= 9; j++) {
-                System.out.println(i + " * " + j + " = " + i*j);
+                System.out.println(i + " * " + j + " = " + i * j);
             }
         }
     }
@@ -28,7 +30,7 @@ public class PrintEvery3 {
     private static int[] reverseArray(int[] arr) {
         int[] result = new int[arr.length];
         int j = 0;
-        for (int i = arr.length -1; i >= 0; i--) {
+        for (int i = arr.length - 1; i >= 0; i--) {
             result[j] = arr[i];
             j++;
         }
@@ -50,19 +52,19 @@ public class PrintEvery3 {
 
     private static void position(String str) {
         String capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        for (int i = 0; i <= str.length() - 1; i ++) {
-            for (int j = 0; j <= capital.length() -1; j++) {
-               if (str.charAt(i) == capital.charAt(j)) {
-                   System.out.println(str.charAt(i) + " " + i);
-                   return;
-               }
+        for (int i = 0; i <= str.length() - 1; i++) {
+            for (int j = 0; j <= capital.length() - 1; j++) {
+                if (str.charAt(i) == capital.charAt(j)) {
+                    System.out.println(str.charAt(i) + " " + i);
+                    return;
+                }
             }
         }
         System.out.println("-1");
     }
 
     private static Boolean confirmEnding(String whole, String last) {
-        int headIndex = (whole.length() -1) - (last.length() -1);
+        int headIndex = (whole.length() - 1) - (last.length() - 1);
         if (whole.substring(headIndex).equals(last)) {
             return true;
         }
@@ -93,7 +95,7 @@ public class PrintEvery3 {
         int counter = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < n) {
-                counter ++;
+                counter++;
             }
         }
         return counter;
@@ -177,7 +179,30 @@ public class PrintEvery3 {
         }
         System.out.print(result * a);
     }
+
+    private static int[] intersection(int[] arr1, int[] arr2) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i : arr1) {
+            for (int j : arr2) {
+                if (i == j) {
+                    list.add(i);
+                }
+            }
+        }
+        
+        int size = list.size();
+        int[] array = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            array[i] = list.get(i);
+        }
+        return array;
+    }
+
     public static void main(String[] args) {
-        addSome(2, 3);
+        int[] arr = intersection(new int[] {1, 3, 4, 6, 10}, new int[] {5, 11, 4, 3, 100, 144, 0});
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
     }
 }
