@@ -166,10 +166,18 @@ public class PrintEvery3 {
         return (int) Math.pow(n, 3);
     }
 
-    private static void addSome() {
-        ;
+    private static void addSome(int a, int n) {
+        final int head = 1;
+        int counter = 0;
+        int result = 0;
+
+        for (int i = 0; i < n; i++) {
+            counter += (int) Math.pow(10, i);
+            result += counter;
+        }
+        System.out.print(result * a);
     }
     public static void main(String[] args) {
-        narcissisticNumber();
+        addSome(2, 3);
     }
 }
