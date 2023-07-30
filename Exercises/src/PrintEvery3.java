@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class PrintEvery3 {
     private static void printEvery3() {
@@ -199,10 +198,29 @@ public class PrintEvery3 {
         return array;
     }
 
-    public static void main(String[] args) {
-        int[] arr = intersection(new int[] {1, 3, 4, 6, 10}, new int[] {5, 11, 4, 3, 100, 144, 0});
-        for (int i : arr) {
-            System.out.print(i + " ");
+    private static int[] rightShift(int[] arr, int n) {
+        int length = arr.length;
+        int[] result = new int[length];
+        for (int i = length -1; i >= 0; i--) {
+            result[shifted(length, i, n)] = arr[i];
         }
+        return result;
+    }
+
+    private static int shifted(int arrLength, int index, int shift) {
+        // Calculate the new index after the shift.
+        int finalIndex = 0;
+        for (int j = index + 1; 0 < shift; j++) {
+            if (j > arrLength - 1) {
+                j = 0;
+            }
+            shift --;
+            finalIndex = j;
+        }
+        return finalIndex;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
