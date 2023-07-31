@@ -220,6 +220,14 @@ public class PrintEvery3 {
         return finalIndex;
     }
 
+    private static int fibonacci(int n) {
+        if (n >= 3) {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        } else {
+            return 1;
+        }
+    }
+
     public static void main(String[] args) {
 
     }
